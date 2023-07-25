@@ -1,4 +1,4 @@
-package com.turanbalayev.layttodo.ui
+package com.turanbalayev.layttodo.ui.list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.turanbalayev.layttodo.R
-import com.turanbalayev.layttodo.databinding.FragmentUpdateBinding
+import com.turanbalayev.layttodo.databinding.FragmentListBinding
 
 
-class UpdateFragment : Fragment() {
-    private var _binding:FragmentUpdateBinding? = null
+class ListFragment : Fragment() {
+    private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,9 +18,10 @@ class UpdateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentUpdateBinding.inflate(inflater,container,false)
+        _binding = FragmentListBinding.inflate(inflater,container,false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,4 +31,6 @@ class UpdateFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
