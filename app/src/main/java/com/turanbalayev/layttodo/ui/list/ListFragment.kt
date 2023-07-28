@@ -32,6 +32,12 @@ class ListFragment : Fragment() {
             findNavController().navigate(action)
 
         }
+
+
+        binding.listLayout.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
