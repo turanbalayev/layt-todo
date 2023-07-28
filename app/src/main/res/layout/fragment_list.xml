@@ -31,11 +31,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:visibility="invisible"
         android:id="@+id/no_data_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_no_data"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
