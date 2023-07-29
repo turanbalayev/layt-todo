@@ -1,11 +1,11 @@
-package com.turanbalayev.layttodo
+package com.turanbalayev.layttodo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.turanbalayev.layttodo.R
 import com.turanbalayev.layttodo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
