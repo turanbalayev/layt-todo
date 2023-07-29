@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_search"
         android:iconTint="@color/white"
         android:title="@string/search"
-        app:actionViewClass="com.google.android.material.search.SearchBar"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom" />
 
     <group android:checkableBehavior="single">
