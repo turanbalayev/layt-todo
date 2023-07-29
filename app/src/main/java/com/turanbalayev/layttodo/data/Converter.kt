@@ -1,6 +1,7 @@
 package com.turanbalayev.layttodo.data
 
 import androidx.room.TypeConverter
+import com.turanbalayev.layttodo.data.models.Priority
 
 class Converter {
 
