@@ -20,13 +20,14 @@ import com.turanbalayev.layttodo.data.models.Priority
 import com.turanbalayev.layttodo.data.models.TodoData
 import com.turanbalayev.layttodo.data.viewmodel.TodoViewModel
 import com.turanbalayev.layttodo.databinding.FragmentAddBinding
+import com.turanbalayev.layttodo.ui.SharedViewModel
 
 
 class AddFragment : Fragment() {
-    private val todoViewModel: TodoViewModel by viewModels()
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-
+    private val todoViewModel: TodoViewModel by viewModels()
+    private val sharedVieModel: SharedViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,9 +71,9 @@ class AddFragment : Fragment() {
         val priority = binding.prioritiesSpinner.selectedItem.toString()
         val description = binding.descriptionEt.text.toString()
 
-        val validation = verifyDataFromUser(title, description)
+        val validation = sharedVieModel.verifyDataFromUser(title, description)
         if (validation) {
-            val newTodoData = TodoData(0,title,parsePriority(priority),description)
+            val newTodoData = TodoData(0,title,sharedVieModel.parsePriority(priority),description)
             todoViewModel.insertData(newTodoData)
             Toast.makeText(requireContext(),"Success",Toast.LENGTH_SHORT).show()
             val action = AddFragmentDirections.actionAddFragmentToListFragment()
@@ -83,23 +84,6 @@ class AddFragment : Fragment() {
     }
 
 
-    private fun verifyDataFromUser(title: String, description: String): Boolean {
-        return if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
-            false
-        } else {
-            !(title.isEmpty() || description.isEmpty())
-        }
-    }
-
-    private fun parsePriority (priority: String) : Priority {
-        return when(priority){
-            "High Priority" -> Priority.HIGH
-            "Medium Priority" -> Priority.MEDIUM
-            "Low Priority" -> Priority.LOW
-            else -> Priority.LOW
-
-        }
-    }
 
 
 
