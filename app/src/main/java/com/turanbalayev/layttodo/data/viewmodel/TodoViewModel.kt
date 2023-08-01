@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
 class TodoViewModel(application: Application) : AndroidViewModel(application) {
     private val todoDao: TodoDao = TodoDatabase.getDatabase(application).todoDao()
     private val repository: TodoRepository
-
     private val getAllData: LiveData<List<TodoData>>
 
     init {
