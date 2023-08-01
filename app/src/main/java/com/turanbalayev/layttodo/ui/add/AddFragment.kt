@@ -36,6 +36,7 @@ class AddFragment : Fragment() {
     ): View? {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
+        binding.prioritiesSpinner.onItemSelectedListener = sharedVieModel.listener
         return binding.root
     }
 
@@ -43,6 +44,7 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //binding.prioritiesSpinner.onItemSelectedListener = sharedVieModel.listener
 
     }
 
@@ -60,10 +62,7 @@ class AddFragment : Fragment() {
         if (item.itemId == R.id.menu_add) {
             insertDataToDb()
         }
-
-
         return super.onOptionsItemSelected(item)
-
     }
 
     private fun insertDataToDb() {
